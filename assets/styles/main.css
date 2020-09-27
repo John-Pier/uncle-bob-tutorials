@@ -1,0 +1,77 @@
+@import 'vars.css';
+
+html {
+    font-family: Roboto, sans-serif; 
+    font-size: 400;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    display: grid;
+    background-color: var(--color-baground-main, dimgrey);
+    margin: 0;
+}
+
+
+* {
+    box-sizing: border-box;
+}
+
+
+*:before,
+*:after {
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+/* App */
+.app__wrapper {
+    display: grid;
+    grid-template-areas: 
+      "header header header"
+      "nav content ads"
+      "footer footer footer";
+    grid-template-rows: 70px 1fr 160px;
+    grid-template-columns: 20% 1fr 12%;
+    grid-gap: 10px;
+    height: 100vh;
+}
+
+#app-header {
+    grid-area: header;
+    padding: 10px;
+    background: gold;
+}
+
+#app-footer {
+    grid-area: footer;
+    padding: 10px;
+    background: gold;
+}
+
+#app-content { 
+    grid-area: content;     
+    padding: 10px;
+    background: gold; 
+}
+
+#app-nav { 
+    grid-area: nav; 
+    padding: 10px;
+    background: gold;
+}
+
+#site-ads { 
+    grid-area: ads; 
+    padding: 10px;
+    background: gold;
+}
+
+.app__content {
+    display: flex;
+    flex-direction: column;
+}
