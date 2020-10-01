@@ -2,22 +2,20 @@
 
 html {
     font-family: Roboto, sans-serif; 
-    font-size: 400;
+    font-weight: 400;
     -ms-text-size-adjust: 100%;
     -webkit-text-size-adjust: 100%;
 }
 
 body {
     display: grid;
-    background-color: var(--color-baground-main, dimgrey);
+    background-color: var(--color-baground-main);
     margin: 0;
 }
-
 
 * {
     box-sizing: border-box;
 }
-
 
 *:before,
 *:after {
@@ -26,7 +24,46 @@ body {
 
 html, body {
     height: 100%;
+    color: var(--color-text-main);
 }
+
+h1 {
+
+}
+
+h2 {
+
+}
+
+h3 {
+
+}
+
+h1, h2, h3, h4, h5 {
+    margin: 0;
+}
+
+a {
+    color: var(--color-text-main);
+    text-decoration: none;
+}
+
+a, a:hover, a:focus, a:active {
+    cursor: pointer;
+    outline: none;
+}
+
+a:hover, a:focus, a:active {
+    color: var(--color-sub-main);
+    text-decoration: none;
+}
+
+/* Until */
+._active-link {
+    font-weight: bolder;
+    color: var(--color-sub-main);
+}
+
 
 /* App */
 .app__wrapper {
@@ -44,34 +81,55 @@ html, body {
 #app-header {
     grid-area: header;
     padding: 10px;
-    background: gold;
 }
 
 #app-footer {
     grid-area: footer;
     padding: 10px;
-    background: gold;
 }
 
 #app-content { 
     grid-area: content;     
     padding: 10px;
-    background: gold; 
 }
 
 #app-nav { 
     grid-area: nav; 
     padding: 10px;
-    background: gold;
 }
 
 #site-ads { 
     grid-area: ads; 
     padding: 10px;
-    background: gold;
+}
+
+#app-header, #app-footer, #app-content, #app-nav, #site-ads {
+    border: 1px var(--color-sub-main) solid;
+    border-radius: 3px;
+    background: var(--color-white);
 }
 
 .app__content {
     display: flex;
     flex-direction: column;
+}
+
+.app__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.app__header_search {
+    margin-right: 20px;
+}
+
+.app__header_search input {
+    width: 120px;
+}
+
+.app__header_search label {
+
 }

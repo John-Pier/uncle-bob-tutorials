@@ -3,10 +3,10 @@
     --color-baground-main: #7395AE;
     --color-white: #ffffff;
     --color-text: #5D5C61;
-    --color: #379683;
+    --color-button: #379683;
     --color-main: #7395AE;
     --color-sub-main: #557A95;
-    --color: #B1A296;
+    --color-button-default: #B1A296;
 }
 
 .theme-green {
