@@ -3,29 +3,34 @@
 
 <head>
     <meta charset="utf-8">
-    <base href="/">
     <link rel="icon" type="image/png" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css"
-          href="D:\Projects\OneDrive - ssau.ru\WorkSpace\Others\NgRxCoding\assets\styles\main.css">
+          href="../../assets/styles/main.css">
     <title>DBobe Tutorials</title>
 </head>
 
 <body>
 <div class="app__wrapper">
     <header id="app-header">
-        <h1><a href="D:\Projects\OneDrive - ssau.ru\WorkSpace\Others\NgRxCoding\index.html">DBobe Tutorials</a></h1>
+        <div class="app__header">
+            <h1><a href="../../index.html">Uncle Bob Tutorials</a></h1>
+            <div class="app__header_search">
+                <label> Поиск: <input type="search" placeholder="Введите фразу...">
+                </label>
+            </div>
+        </div>
     </header>
     <div id="app-nav">
         <nav>
             <div> NgRx</div>
             <ul>
-                <li><a href="D:\Projects\OneDrive - ssau.ru\WorkSpace\Others\NgRxCoding\pages\ngrx.html" class="active"> О библиотеке</a></li>
-                <li><a href="/pages/"> Actions</a></li>
-                <li><a href="/pages/"> Reducers</a></li>
-                <li><a href="/pages/">Store</a></li>
+                <li><a href="ngrx.html" class="_active-link"> О библиотеке</a></li>
+                <li><a href="actions.html">Actions</a></li>
+                <li><a href="reducers.html" >Reducers</a></li>
+                <li><a href="store.html" >Store</a></li>
+                <li><a href="effects.html">Effects</a></li>
                 <li><a href="/pages/">Selectors</a></li>
-                <li><a href="/pages/">Effects</a></li>
                 <li><a href="/pages/">Router store</a></li>
                 <li><a href="/pages/">Meta reducers</a></li>
                 <li><a href="/pages/">Entity state</a></li>
@@ -33,41 +38,123 @@
             </ul>
         </nav>
     </div>
-        <div id="app-content" class="app__content">
-            <main>
-                <h1>О библиотеке</h1>
-                <div _ngcontent-c7="" class="article-view"><!----><div _ngcontent-c7="" class="mb20"><!----><p _ngcontent-c7="" class="text">Библиотека NgRx реализует принцип работы Redux для Angular приложений. Главная цель NgRx - централизовать и сделать
-                    максимально понятным управление всеми состояниями приложения.</p><!----><!----><!----><!----><!----><!----><!----><!----><!----></div><div _ngcontent-c7="" class="mb20"><!----><!----><!----><!----><!----><div _ngcontent-c7="" class="list"><p _ngcontent-c7="">Цель достигается благодаря заложенным в библиотеке нескольким фундаментальным принципам:</p><ul _ngcontent-c7=""><!----><li _ngcontent-c7="">Наличие единственного источника данных о состоянии - хранилища (store);</li><li _ngcontent-c7="">Доступность состояния только для чтения;</li><li _ngcontent-c7="">Изменение состояния осуществляется только через действия (actions), которые обрабатываются редюсерами (reducer), представляющими собой чистые функции.</li></ul></div><!----><!----><!----><!----><!----></div><div _ngcontent-c7="" class="mb20"><!----><p _ngcontent-c7="" class="text">Сама библиотека NgRx состоит из нескольких устанавливаемых независимо друг от друга модулей. Например, за работу с хранилищем, включая действия и редюсеры,
-                    отвечает модуль <span class="inline-code">@ngrx/store</span>, а за работу с <a href="/tutorial/ngrx/effects" target="_blank">эффектами</a> - <span class="inline-code">@ngrx/effects</span>.</p><!----><!----><!----><!----><!----><!----><!----><!----><!----></div><div _ngcontent-c7="" class="mb20"><!----><!----><!----><!----><!----><!----><!----><!----><div _ngcontent-c7="" class="anchor" name="actions"></div><h2 _ngcontent-c7="" class="subtitle">Actions</h2><!----><!----><!----></div><div _ngcontent-c7="" class="mb20"><!----><p _ngcontent-c7="" class="text">Действия отражают уникальные события, которые происходят в процессе работы приложения, и используются для передачи данных в
-                    хранилище для изменения сотояния приложения. NgRx Actions - единственный источник данных для хранилища.</p><!----><!----><!----><!----><!----><!----><!----><!----><!----></div><div _ngcontent-c7="" class="mb20"><!----><p _ngcontent-c7="" class="text">Создание действий осуществляется с помощью функции <span class="inline-code">createAction()</span>, которая возвращает функцию, вызов которой в свою очередь возвращает объект, 
-                   реализующий интерфейс <span class="inline-code">Action</span>. Подробно <a href="/tutorial/ngrx/actions" target="_blank">здесь</a>.</p><!----><!----><!----><!----><!----><!----><!----><!----><!----></div><div _ngcontent-c7="" class="mb20"><!----><!----><!----><!----><!----><!----><!----><!----><div _ngcontent-c7="" class="anchor" name="reducers"></div><h2 _ngcontent-c7="" class="subtitle">Reducers</h2><!----><!----><!----></div><div _ngcontent-c7="" class="mb20"><!----><p _ngcontent-c7="" class="text">Если действия описывают что-то, что произошло в приложении, то редюсеры определяют, как должно измениться состояние
-                    Angular приложения в ответ на возникшее действие.</p><!----><!----><!----><!----><!----><!----><!----><!----><!----></div><div _ngcontent-c7="" class="mb20"><!----><p _ngcontent-c7="" class="text">NgRx Reducers регистрируются в хранилище и должны быть <a href="https://ru.wikipedia.org/wiki/%D0%A7%D0%B8%D1%81%D1%82%D0%BE%D1%82%D0%B0_%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8" target="_blank">чистыми функциями</a>.
-                    Редюсер принимает исходное состояние и возникшее действие в качестве аргументов, обрабатывает переданные данные и 
-                    возвращает новое состояние в виде нового объекта. Изменять исходное состояние напрямую нельзя.</p><!----><!----><!----><!----><!----><!----><!----><!----><!----></div><div _ngcontent-c7="" class="mb20"><!----><p _ngcontent-c7="" class="text">В приложении может быть неограниченное количество редюсеров, каждый из которых формирует часть
-                   глобального состояния и управляет ею.</p><!----><!----><!----><!----><!----><!----><!----><!----><!----></div><div _ngcontent-c7="" class="mb20"><!----><p _ngcontent-c7="" class="text">Если в редюсере не предусмотрена обработка возникшего действия, то он просто возвращает исходное состояние.
-                    Подробно <a href="/tutorial/ngrx/reducers" target="_blank">здесь</a>.</p><!----><!----><!----><!----><!----><!----><!----><!----><!----></div><div _ngcontent-c7="" class="mb20"><!----><!----><!----><!----><!----><!----><!----><!----><div _ngcontent-c7="" class="anchor" name="store"></div><h2 _ngcontent-c7="" class="subtitle">Store</h2><!----><!----><!----></div><div _ngcontent-c7="" class="mb20"><!----><p _ngcontent-c7="" class="text"><a href="/tutorial/ngrx/store" target="_blank">Хранилище</a> содержит в себе полное состояние всего приложения и существует в единственном экземпляре. Формирование
-                    NgRx Store происходит путем объединения состояний, возвращаемых каждым из редюсеров. Но самое простое Angular приложение
-                     может содержать только один редюсер.</p><!----><!----><!----><!----><!----><!----><!----><!----><!----></div><div _ngcontent-c7="" class="mb20"><!----><!----><!----><!----><!----><div _ngcontent-c7="" class="list"><p _ngcontent-c7="">Основные функции NgRx Store:</p><ul _ngcontent-c7=""><!----><li _ngcontent-c7="">хранение состояния приложения и предоставление к нему доступа;</li><li _ngcontent-c7="">предоставление возможности обновить состояние через заранее определенные действия;</li><li _ngcontent-c7="">регистрация функций, вызов которых будут осуществлен при любом изменении состояния.</li></ul></div><!----><!----><!----><!----><!----></div><div _ngcontent-c7="" class="mb20"><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><!----><ng2-adsense _ngcontent-c7=""><ins class="adsbygoogle " data-ad-client="ca-pub-2736233360241324" data-ad-slot="4008164678" data-ad-format="rectangle,horizontal" data-ad-region="page-9141" data-full-width-responsive="true" style="display: block;"></ins></ng2-adsense></div></div>
-                <p>
-
-                </p>
-            </main>
-        </div>
-        <div id="site-ads">
-            реклама тип
-        </div>
-        <footer id="app-footer">
-            Футер
-            <nav>
-                <ul>
-                    <li>элемент</li>
-                    <li>элемент</li>
-                    <li>элемент</li>
-                    <li>элемент</li>
-                </ul>
-            </nav>
-        </footer>
+    <div id="app-content" class="app__content">
+        <main>
+            <h1>О библиотеке</h1>
+            <div class="article-view">
+                <div class="mb20">
+                    <p class="text">Библиотека NgRx реализует принцип работы Redux для Angular
+                        приложений. Главная цель NgRx - централизовать и сделать
+                        максимально понятным управление всеми состояниями приложения.
+                    </p>
+                </div>
+                <div class="mb20">
+                    <div class="list">
+                        <p>Цель достигается благодаря заложенным в библиотеке нескольким фундаментальным
+                            принципам:
+                        </p>
+                        <ul>
+                            <li>Наличие единственного источника данных о состоянии - хранилища (store);</li>
+                            <li>Доступность состояния только для чтения;</li>
+                            <li>Изменение состояния осуществляется только через действия (actions), которые
+                                обрабатываются редюсерами (reducer), представляющими собой чистые функции.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="mb20">
+                    <p class="text">Сама библиотека NgRx состоит из нескольких устанавливаемых
+                        независимо друг от друга модулей. Например, за работу с хранилищем, включая действия и редюсеры,
+                        отвечает модуль <span class="inline-code">@ngrx/store</span>, а за работу с
+                        <a href="effects.html">эффектами</a> - <span class="inline-code">@ngrx/effects</span>.
+                    </p>
+                </div>
+                <div class="mb20">
+                    <h2 class="subtitle">Actions</h2>
+                </div>
+                <div class="mb20">
+                    <p class="text">Действия отражают уникальные события, которые происходят в
+                        процессе работы приложения, и используются для передачи данных в
+                        хранилище для изменения сотояния приложения. NgRx Actions - единственный источник данных для
+                        хранилища.
+                    </p>
+                </div>
+                <div class="mb20">
+                    <p class="text">Создание действий осуществляется с помощью функции <span class="inline-code">createAction()</span>
+                        , которая возвращает функцию, вызов которой в свою
+                        очередь возвращает объект, реализующий интерфейс
+                        <span class="inline-code">Action</span>. Подробно <a href="actions.html">здесь</a>.
+                    </p>
+                </div>
+                <div class="mb20">
+                    <h2 class="subtitle">Reducers</h2>
+                </div>
+                <div class="mb20">
+                    <p class="text">Если действия описывают что-то, что произошло в приложении, то
+                        редюсеры определяют, как должно измениться состояние
+                        Angular приложения в ответ на возникшее действие.
+                    </p>
+                </div>
+                <div class="mb20">
+                    <p class="text">NgRx Reducers регистрируются в хранилище и должны быть
+                        <a href="https://ru.wikipedia.org/wiki/%D0%A7%D0%B8%D1%81%D1%82%D0%BE%D1%82%D0%B0_%D1%84%D1%83%D0%BD%D0%BA%D1%86%D0%B8%D0%B8"
+                           target="_blank">чистыми функциями</a>.
+                        Редюсер принимает исходное состояние и возникшее действие в качестве аргументов, обрабатывает
+                        переданные данные и
+                        возвращает новое состояние в виде нового объекта. Изменять исходное состояние напрямую нельзя.
+                    </p>
+                </div>
+                <div class="mb20">
+                    <p class="text">В приложении может быть неограниченное количество редюсеров,
+                        каждый из которых формирует часть
+                        глобального состояния и управляет ею.
+                    </p>
+                </div>
+                <div class="mb20">
+                    <p class="text">Если в редюсере не предусмотрена обработка возникшего действия,
+                        то он просто возвращает исходное состояние.
+                        Подробно <a href="reducers.html">здесь</a>.
+                    </p>
+                </div>
+                <div class="mb20">
+                    <h2 class="subtitle">Store</h2>
+                </div>
+                <div class="mb20">
+                    <p class="text"><a href="store.html">Хранилище</a>
+                        содержит в себе полное состояние всего приложения и существует в единственном экземпляре.
+                        Формирование
+                        NgRx Store происходит путем объединения состояний, возвращаемых каждым из редюсеров. Но самое
+                        простое Angular приложение
+                        может содержать только один редюсер.
+                    </p>
+                </div>
+                <div class="mb20">
+                    <div class="list"><p>Основные функции NgRx Store:</p>
+                        <ul>
+                            <li>хранение состояния приложения и предоставление к нему доступа;</li>
+                            <li>предоставление возможности обновить состояние через заранее определенные действия;</li>
+                            <li>регистрация функций, вызов которых будут осуществлен при любом изменении состояния.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </main>
     </div>
+    <div id="site-ads">
+        реклама тип
+    </div>
+    <footer id="app-footer">
+        Футер
+        <nav>
+            <ul>
+                <li>элемент</li>
+                <li>элемент</li>
+                <li>элемент</li>
+                <li>элемент</li>
+            </ul>
+        </nav>
+    </footer>
+</div>
 </body>
 
 </html>
