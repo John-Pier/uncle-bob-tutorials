@@ -13,7 +13,7 @@
 <div class="app__wrapper">
     <header id="app-header">
         <div class="app__header">
-            <h1>Uncle Bob Tutorials</h1>
+            <div class="app__header_title">Uncle Bob Tutorials</div>
             <div class="app__header_search">
                 <label> Поиск: <input type="search" placeholder="Введите фразу...">
                 </label>
@@ -22,43 +22,73 @@
     </header>
     <div id="app-nav">
         <nav>
-            <div> NgRx</div>
+            <div><a href="pages/ngrx/ngrx.html">NgRx</a></div>
             <ul>
-                <li><a href="pages/ngrx/ngrx.html"> О библиотеке</a></li>
-                <li><a href="pages/ngrx/actions.html"> Actions</a></li>
-                <li><a href="pages/ngrx/reducers.html"> Reducers</a></li>
+                <li><a href="pages/ngrx/ngrx.html">О библиотеке</a></li>
+                <li><a href="pages/ngrx/actions.html">Actions</a></li>
+                <li><a href="pages/ngrx/reducers.html">Reducers</a></li>
                 <li><a href="pages/ngrx/store.html">Store</a></li>
                 <li><a href="pages/">Selectors</a></li>
                 <li><a href="pages/ngrx/effects.html">Effects</a></li>
-                <li><a href="pages/">Router store</a></li>
-                <li><a href="pages/">Meta reducers</a></li>
-                <li><a href="pages/">Entity state</a></li>
-                <li><a href="pages/">Оформление</a></li>
+                <li><a href="/">Router store</a></li>
+                <li><a href="/">Meta reducers</a></li>
+                <li><a href="/">Entity state</a></li>
+                <li><a href="/">Оформление</a></li>
+            </ul>
+            <div><a href="/">RxJS (В разработке)</a></div>
+            <ul>
+                <li><a href="/">О библиотеке</a></li>
+            </ul>
+            <div><a href="/">Node.js (В разработке)</a></div>
+            <ul>
+                <li><a href="/">О библиотеке</a></li>
             </ul>
         </nav>
     </div>
     <div id="app-content" class="app__content">
         <main>
-            <div>
-                <h2>Содержание</h2>
-                <article>
+            <h2>Содержание</h2>
+            <article>
+                <section>
+                    <h3>NgRx</h3>
+                    <p>Библиотека NgRx реализует принцип работы Redux для Angular приложений.
+                        Главная цель NgRx - централизовать и сделать максимально понятным управление всеми состояниями
+                        приложения.</p>
+                    <p class="text">Сама библиотека NgRx состоит из нескольких устанавливаемых независимо друг от друга
+                        модулей. Например, за работу с хранилищем, включая действия и редюсеры,
+                        отвечает модуль
+                        <span class="inline-code">@ngrx/store</span>, а за работу с <a href="pages/ngrx/effects.html">эффектами</a>
+                        - <span class="inline-code">@ngrx/effects</span>.</p>
+                </section>
+                <section>
                     <h3>RxJS</h3>
-                    <p>Библиотека для управления асинхронными действиями и событиями JavaScript в стиле реактивного программирования.</p>
-                </article>
-            </div>
+                    <p>Библиотека для управления асинхронными действиями и событиями JavaScript в стиле реактивного
+                        программирования.</p>
+                </section>
+                <section>
+                    <h3>Node.js</h3>
+                    <p>Node js - это программная платформа, которая предоставляет среду для выполнения кода JavaScript
+                        на стороне сервера.</p>
+                    <p> Node js не является языком программирования, код пишется на JavaScript.
+                        В отличие от PHP, который работает под управлением "стороннего" веб-сервера, например, Apache
+                        или IIS, Node js сама является веб-сервером.
+                        Но часто она работает в связке с Nginx в качестве основного сервера.
+                        Использование Nginx совсем не обязательно, но оправдано для кэширования данных запроса, отдачи
+                        статических файлов или разделения доменов в пределах одного сервера (reverse proxy).</p>
+                </section>
+            </article>
         </main>
     </div>
     <div id="site-ads">
         реклама тип
     </div>
     <footer id="app-footer">
-        Футер
         <nav>
+            <h4>Обучение</h4>
             <ul>
-                <li>элемент</li>
-                <li>элемент</li>
-                <li>элемент</li>
-                <li>элемент</li>
+                <li>NgRx</li>
+                <li>RxJS</li>
+                <li>Node.js</li>
             </ul>
         </nav>
     </footer>

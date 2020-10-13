@@ -11,8 +11,8 @@
 
 .theme-green {
     --color-text: #505160;
-    --color: #68829E;
+    --color-button: #68829E;
     --color-main: #AEBD38;
     --color-sub-main: #598234;
-    --color: #C6D166;
+    --color-button-defaul: #C6D166;
 }
