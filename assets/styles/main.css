@@ -122,6 +122,13 @@ a:hover, a:focus, a:active {
     height: 100%;
 }
 
+.app__header_title {
+    font-size: 32px;
+    font-weight: bold;
+    cursor: pointer;
+    user-select: none;
+}
+
 .app__header_search {
     margin-right: 20px;
 }
