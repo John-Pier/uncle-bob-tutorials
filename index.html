@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="icon" type="image/png" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
     <link type="text/css" href="assets/styles/main.css" rel="stylesheet">
     <title>Uncle Bob Tutorials</title>
@@ -28,67 +28,72 @@
                 <li><a href="pages/ngrx/actions.html">Actions</a></li>
                 <li><a href="pages/ngrx/reducers.html">Reducers</a></li>
                 <li><a href="pages/ngrx/store.html">Store</a></li>
-                <li><a href="pages/">Selectors</a></li>
+                <li><a href="pages/not-found.html">Selectors</a></li>
                 <li><a href="pages/ngrx/effects.html">Effects</a></li>
-                <li><a href="/">Router store</a></li>
-                <li><a href="/">Meta reducers</a></li>
-                <li><a href="/">Entity state</a></li>
-                <li><a href="/">Оформление</a></li>
+                <li><a href="pages/not-found.html">Router store</a></li>
+                <li><a href="pages/not-found.html">Meta reducers</a></li>
+                <li><a href="pages/not-found.html">Entity state</a></li>
+                <li><a href="pages/not-found.html">Оформление</a></li>
             </ul>
-            <div><a href="/">RxJS (В разработке)</a></div>
+            <div><a href="pages/not-found.html">RxJS (В разработке)</a></div>
             <ul>
-                <li><a href="/">О библиотеке</a></li>
+                <li><a href="pages/not-found.html">О библиотеке</a></li>
             </ul>
-            <div><a href="/">Node.js (В разработке)</a></div>
+            <div><a href="pages/not-found.html">Node.js (В разработке)</a></div>
             <ul>
-                <li><a href="/">О библиотеке</a></li>
+                <li><a href="pages/not-found.html">О библиотеке</a></li>
             </ul>
         </nav>
     </div>
     <div id="app-content" class="app__content">
         <main>
-            <h2>Содержание</h2>
+            <h2>Обучение WEB-разработке</h2>
             <article>
-                <section>
+                <section class="article__section">
                     <h3>NgRx</h3>
-                    <p>Библиотека NgRx реализует принцип работы Redux для Angular приложений.
-                        Главная цель NgRx - централизовать и сделать максимально понятным управление всеми состояниями
-                        приложения.</p>
-                    <p class="text">Сама библиотека NgRx состоит из нескольких устанавливаемых независимо друг от друга
-                        модулей. Например, за работу с хранилищем, включая действия и редюсеры,
-                        отвечает модуль
-                        <span class="inline-code">@ngrx/store</span>, а за работу с <a href="pages/ngrx/effects.html">эффектами</a>
-                        - <span class="inline-code">@ngrx/effects</span>.</p>
+                    <div class="article__view">
+                        <p>
+                            Библиотека для централизованного управления состоянием Angular приложений, имеющая
+                            единственный источник данных - хранилище.
+                        </p>
+                        <div class="article__view__button app__button_primary">
+                            <a>Подробнее</a>
+                        </div>
+                    </div>
                 </section>
-                <section>
+                <section class="article__section">
                     <h3>RxJS</h3>
-                    <p>Библиотека для управления асинхронными действиями и событиями JavaScript в стиле реактивного
-                        программирования.</p>
+                    <div class="article__view">
+                        <p>Библиотека для управления асинхронными действиями и событиями JavaScript в стиле реактивного
+                            программирования.
+                        </p>
+                        <div class="article__view__button app__button_primary">
+                            <a>Подробнее</a>
+                        </div>
+                    </div>
                 </section>
-                <section>
+                <section class="article__section">
                     <h3>Node.js</h3>
-                    <p>Node js - это программная платформа, которая предоставляет среду для выполнения кода JavaScript
-                        на стороне сервера.</p>
-                    <p> Node js не является языком программирования, код пишется на JavaScript.
-                        В отличие от PHP, который работает под управлением "стороннего" веб-сервера, например, Apache
-                        или IIS, Node js сама является веб-сервером.
-                        Но часто она работает в связке с Nginx в качестве основного сервера.
-                        Использование Nginx совсем не обязательно, но оправдано для кэширования данных запроса, отдачи
-                        статических файлов или разделения доменов в пределах одного сервера (reverse proxy).</p>
+                    <div class="article__view">
+                        <p>Программная платформа, представляющая собой событийно-ориентированную систему и выполняющая код JavaScript на стороне сервера.</p>
+                        <div class="article__view__button app__button_primary">
+                            <a>Подробнее</a>
+                        </div>
+                    </div>
                 </section>
             </article>
         </main>
     </div>
     <div id="site-ads">
-        реклама тип
+        реклама
     </div>
     <footer id="app-footer">
         <nav>
-            <h4>Обучение</h4>
+            <h4><a href="index.html">Обучение</a></h4>
             <ul>
-                <li>NgRx</li>
-                <li>RxJS</li>
-                <li>Node.js</li>
+                <li><a href="pages/ngrx/ngrx.html">NgRx</a></li>
+                <li><a>RxJS</a></li>
+                <li><a>Node.js</a></li>
             </ul>
         </nav>
     </footer>

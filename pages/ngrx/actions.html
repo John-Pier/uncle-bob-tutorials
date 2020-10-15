@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8">
-    <link rel="icon" type="image/png" href="favicon.ico">
+    <link rel="icon" type="image/png" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
     <link type="text/css" href="../../assets/styles/main.css" rel="stylesheet">
     <title>DBobe Tutorials</title>
@@ -13,46 +13,171 @@
 <div class="app__wrapper">
     <header id="app-header">
         <div class="app__header">
-            <h1><a href="../../index.html">Uncle Bob Tutorials</a></h1>
+            <div class="app__header_title"><a href="../../index.html">Uncle Bob Tutorials</a></div>
             <div class="app__header_search">
-                <label> Поиск: <input type="search" placeholder="Введите фразу...">
-                </label>
+                <label> Поиск: <input type="search" placeholder="Введите фразу..."></label>
             </div>
         </div>
     </header>
     <div id="app-nav">
         <nav>
-            <div> NgRx</div>
+            <div><a href="ngrx.html">NgRx</a></div>
             <ul>
-                <li><a href="ngrx.html"> О библиотеке</a></li>
+                <li><a href="ngrx.html">О библиотеке</a></li>
                 <li><a href="actions.html" class="_active-link">Actions</a></li>
                 <li><a href="reducers.html">Reducers</a></li>
                 <li><a href="store.html">Store</a></li>
+                <li><a href="../not-found.html">Selectors</a></li>
                 <li><a href="effects.html">Effects</a></li>
-                <li><a href="/pages/">Selectors</a></li>
-                <li><a href="/pages/">Router store</a></li>
-                <li><a href="/pages/">Meta reducers</a></li>
-                <li><a href="/pages/">Entity state</a></li>
-                <li><a href="/pages/">Оформление</a></li>
+                <li><a href="../not-found.html">Router store</a></li>
+                <li><a href="../not-found.html">Meta reducers</a></li>
+                <li><a href="../not-found.html">Entity state</a></li>
+                <li><a href="../not-found.html">Оформление</a></li>
+            </ul>
+            <div><a href="../not-found.html">RxJS (В разработке)</a></div>
+            <ul>
+                <li><a href="../not-found.html">О библиотеке</a></li>
+            </ul>
+            <div><a href="../not-found.html">Node.js (В разработке)</a></div>
+            <ul>
+                <li><a href="../not-found.html">О библиотеке</a></li>
             </ul>
         </nav>
     </div>
     <div id="app-content" class="app__content">
         <main>
-            Содержание
+            <article>
+                <h2>Actions</h2>
+                <div class="article__view">
+                    <p class="article__block">В NgRx действия
+                        описывают все события Angular приложения, которые влияют или могут повлиять на его
+                        состояние.
+                        Изменить
+                        состояние можно только через отправку
+                        <a class="article__link" href="/">хранилищу</a> какого-либо действия.
+                    </p>
+                    <p>За работу с действиями
+                        отвечает управляющий хранилищем отдельно устанавливаемый модуль <span class="code__inline">@ngrx/store</span>.
+                    </p>
+                    <pre class="code__cli">npm i @ngrx/store</pre>
+                    <p>NgRx Actions
+                        представляют собой объекты, которые реализуют интерфейс
+                        <span class="code__inline">Action</span>
+                        и создаются с помощью функции,
+                        возвращаемой функцией <span class="code__inline">createAction()</span>, которая принимает в
+                        качестве обязательного аргумента тип действия.
+                    </p>
+                    <div class="code__block">
+                        <div class="code__block_name">action.interface.ts</div>
+                        <pre>
+                            <span>// Код интерфейса Action</span>
+                            <span>interface Action {</span>
+                            <span>     type: string;</span>
+                            <span>}</span>
+                        </pre>
+                    </div>
+                    <p class="text">Интерфейс Action имеет
+                        единственное обязательное свойство <span class="code__inline">type</span>, значением котрого
+                        должна быть константа типа
+                        <span class="code__inline">string</span>. Именно значение поля type передается параметром методу
+                        createAction(). Рассмотрим пример создания действия.
+                    </p>
+                    <div class="code__block">
+                        <div class="code__block_name">users.actions.ts</div>
+                        <pre>
+                            <span>import {createAction} from '@ngrx/store';</span>
+                            <span class="code__block__elements_el"></span>
+                            <span>export const getUsers = createAction('[Users Page] GetUsers');</span>
+                        </pre>
+                    </div>
+                    <p class="text">Общепринято называть
+                        действие в формате <span class="code__inline">[Category name] Event name</span>.
+                        В квадратных скобках указывается категория действия, а после них - событие, вызвавшее его. Под
+                        категорией здесь подразумевается группа
+                        взаимосвязанных между собой логически событий. Например, если все они вызываются на странице
+                        новостей, то категорию можно назвать
+                        [News].
+                    </p>
+                    <p class="text">Для инициирования
+                        обработки NgRx Actions хранилищем, используется метод объекта хранилища <span
+                                class="code__inline">dispatch()</span>.
+                    </p>
+                    <div class="code__block">
+                        <div class="code__block_name">(untitled)</div>
+                        <pre>
+                            <span>// Здесь переменная store является экземпляром класса Store</span>
+                            <span>store.dispatch(getUsers());</span>
+                        </pre>
+                    </div>
+                    <p class="text">Практически всегда для
+                        изменения состояния вам необходимо будет вместе с действием передавать какие-либо данные.
+                        Данные передаются действию аргументом в виде объекта в момент его вызова, а их структура
+                        описывается методом
+                        <span class="code__inline">props&lt;T&gt;()</span>.
+                    </p>
+                    <div class="code__block">
+                        <div class="code__block_name">(untitled)</div>
+                        <pre>
+                            <span>import {createAction, props} from '@ngrx/store';</span>
+                            <span>export const deleteUser = createAction(</span>
+                            <span>  '[Users Page] DeleteUser',</span>
+                            <span>  props<{id: number}>()</span>
+                            <span>);</span>
+                            <span class="code__block__elements_el"></span>
+                            <span>// инициирование события deleteUser</span>
+                            <span>store.dispatch(deleteUser({id: 7}));</span>
+                        </pre>
+                    </div>
+                    <p class="text">В последнем примере
+                        <span class="code__inline">{id: number}</span> является описанием структуры объекта данных.
+                    </p>
+                    <p class="text">Для структурирования
+                        кода и легкости дальнейшего масштабирования вашего приложения, рекомендуется описывать все
+                        действия в
+                        виде перечислений.
+                    </p>
+                    <div class="code__block">
+                        <div class="code__block_name">users.actions.ts</div>
+                        <pre>
+                            <span>export enum UsersActions {</span>
+                            <span>   GetUsers = '[Users Page] GetUsers',</span>
+                            <span>   DeleteUser = '[Users Page] DeleteUser',</span>
+                            <span>   DeleteAllUsers = '[Users Page] DeleteAllUsers'</span>
+                            <span>}</span>
+                            <span>export const getUsers = createAction(UsersActions.GetUsers);</span>
+                            <span class="code__block__elements_el"></span>
+                            <span>export const deleteUser = createAction(</span>
+                            <span>   UsersActions.DeleteUser,</span>
+                            <span>   props<{id: number}>()</span>
+                            <span>);</span>
+                            <span class="code__block__elements_el"></span>
+                            <span>export const deleteAllUsers = createAction(UsersActions.DeleteAllUsers);</span>
+                        </pre>
+                    </div>
+                    <p class="text">Далее описано, как
+                        приложение обрабатывает инициированные действия с помощью
+                        <a class="article__link" href="reducers.html">редюсеров</a>.
+                    </p>
+                </div>
+                <div class="article__navigations">
+                    <nav>
+                        <div class="article__navigations_button app__button_default"><a>Вперед</a></div>
+                        <div class="article__navigations_button app__button_default"><a>Назад</a></div>
+                    </nav>
+                </div>
+            </article>
         </main>
     </div>
     <div id="site-ads">
-        реклама тип
+        реклама
     </div>
     <footer id="app-footer">
-        Футер
         <nav>
+            <h4><a href="../../index.html">Обучение</a></h4>
             <ul>
-                <li>элемент</li>
-                <li>элемент</li>
-                <li>элемент</li>
-                <li>элемент</li>
+                <li><a href="ngrx.html">NgRx</a></li>
+                <li><a>RxJS</a></li>
+                <li><a>Node.js</a></li>
             </ul>
         </nav>
     </footer>

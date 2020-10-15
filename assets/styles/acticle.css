@@ -1,0 +1,49 @@
+article {
+	margin-top: 10px;
+	padding: 4px;
+	font-size: 16px;
+	line-height: 22px;
+}
+
+.article__section {
+	margin-bottom: 20px;
+}
+
+.article__view {
+	display: flex;
+	flex-direction: column;
+	margin-top: 6px;
+}
+
+.article__view__button {
+	width: fit-content;
+}
+
+.article__navigations {
+	display: flex;
+	margin: 10px 0;
+}
+
+.article__navigations  nav {
+	display: flex;
+	flex-direction: row-reverse;
+	flex: 1 1 auto;
+	justify-content: space-between;
+}
+
+.article__navigations_button {
+	width: fit-content;
+}
+
+.article__block, article .article__view p  {
+	margin: 10px 0;
+}
+
+.article__link {
+	color: var(--color-link-article);
+	text-decoration: underline;
+}
+
+.article__link:hover {
+	text-decoration: underline;
+}
