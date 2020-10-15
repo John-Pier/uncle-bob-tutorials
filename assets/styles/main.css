@@ -71,6 +71,10 @@ main {
 	flex: 1 1 auto;
 }
 
+figure {
+	margin: 10px 0;
+}
+
 /* Until */
 ._active-link {
 	font-weight: bolder;
