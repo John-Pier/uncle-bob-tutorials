@@ -22,6 +22,17 @@ article {
 	width: fit-content;
 }
 
+.article__view figure {
+	display: flex;
+	justify-content: space-between;
+}
+
+.article__view figcaption {
+	display: flex;
+	align-items: center;
+	margin-left: 10px;
+}
+
 .article__navigations {
 	display: flex;
 	margin: 10px 0;
