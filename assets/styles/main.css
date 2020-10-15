@@ -65,6 +65,12 @@ pre {
 	margin: 0;
 }
 
+main {
+	display: flex;
+	flex-direction: column;
+	flex: 1 1 auto;
+}
+
 /* Until */
 ._active-link {
 	font-weight: bolder;
@@ -113,9 +119,8 @@ pre {
       "nav content ads"
       "footer footer footer";
 	grid-template-rows: 70px 1fr 160px;
-	grid-template-columns: 20% 1fr 12%;
+	grid-template-columns: minmax(220px,20%) 1fr minmax(70px,12%);
 	grid-gap: 10px;
-	height: 100vh;
 }
 
 #app-header {

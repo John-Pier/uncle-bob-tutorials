@@ -29,6 +29,8 @@
 }
 
 .code__cli {
+	display: flex;
+	flex-flow: column wrap;
 	border-radius: 3px;
 	background: var(--color-code-cli);
 	box-shadow: 1px 4px 5px 1px var(--shadow-code-cli);
@@ -36,6 +38,10 @@
 	font-size: 16px;
 	padding: 10px;
 	margin: 10px 0 12px;
+}
+
+.code__cli span {
+
 }
 
 .code__inline {
