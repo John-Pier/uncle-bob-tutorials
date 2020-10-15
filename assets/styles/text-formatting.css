@@ -1,0 +1,47 @@
+.code__block {
+	margin: 16px 0;
+	border-radius: 3px;
+	background: var(--color-code-block);
+	box-shadow: 1px 4px 5px 1px var(--shadow-code-default);
+}
+
+.code__block_name {
+	padding: 4px 10px;
+	border-radius: 3px;
+	color: var(--color-white);
+	background: var(--color-code-block-name);
+}
+
+.code__block pre {
+	display: flex;
+	flex-direction: column;
+	font-family: "Courier New", monospace;
+	font-size: 14px;
+	padding: 2px 10px;
+	letter-spacing: .05em;
+	background: transparent;
+	border-bottom-left-radius: 3px;
+	border-bottom-right-radius: 3px;
+}
+
+.code__block__elements_el {
+	height: 14px;
+}
+
+.code__cli {
+	border-radius: 3px;
+	background: var(--color-code-cli);
+	box-shadow: 1px 4px 5px 1px var(--shadow-code-cli);
+	font-family: "Courier New", monospace;
+	font-size: 16px;
+	padding: 10px;
+	margin: 10px 0 12px;
+}
+
+.code__inline {
+	font-family: "Courier New", monospace;
+	padding: 1px 5px;
+	border-radius: 3px;
+	background-color: var(--color-code-inline);
+}
+

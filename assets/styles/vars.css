@@ -1,17 +1,32 @@
 :root {
-    --color-text-main: #1f252d;
+    --color-text-main: #2d3a4f;
+    --color-text-h: #3b5d8d;
     --color-baground-main: #7395AE;
     --color-white: #ffffff;
     --color-text: #5D5C61;
-    --color-button: #379683;
+    --color-button-primary: #65acb8;
+    --color-button-assent: #d2c28b;
+    --color-button-warn: #d78686;
+    --color-button-link: var(--color-text-main);
     --color-main: #7395AE;
     --color-sub-main: #557A95;
     --color-button-default: #B1A296;
+    --color-link-article: #76add6;
+
+    /* Other colors */
+    --color-code-cli: #f1f0fb;
+    --color-code-inline: #c7d6e8;
+    --color-code-block: #f3ede8;
+    --color-code-block-name: #819398;
+
+    /* Shadow colors */
+    --shadow-code-default: #cccbcf87;
+    --shadow-code-cli: #cccbcf87;
 }
 
 .theme-green {
     --color-text: #505160;
-    --color-button: #68829E;
+    --color-button-primary: #68829E;
     --color-main: #AEBD38;
     --color-sub-main: #598234;
     --color-button-defaul: #C6D166;
