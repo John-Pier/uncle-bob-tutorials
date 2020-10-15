@@ -4,13 +4,19 @@
     --color-baground-main: #7395AE;
     --color-white: #ffffff;
     --color-text: #5D5C61;
+    --color-alert: #e98585;
+
     --color-button-primary: #65acb8;
     --color-button-assent: #d2c28b;
     --color-button-warn: #d78686;
     --color-button-link: var(--color-text-main);
+    --color-button-default: #B1A296;
+
     --color-main: #7395AE;
     --color-sub-main: #557A95;
-    --color-button-default: #B1A296;
+
+    --color-alert-block: #d7f0ff;
+
     --color-link-article: #76add6;
 
     /* Other colors */

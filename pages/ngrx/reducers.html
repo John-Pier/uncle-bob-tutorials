@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
     <link type="text/css" href="../../assets/styles/main.css" rel="stylesheet">
-    <title>DBobe Tutorials</title>
+    <title>Uncle Bob Tutorials</title>
 </head>
 
 <body>
@@ -47,11 +47,134 @@
     </div>
     <div id="app-content" class="app__content">
         <main>
-            Содержание
+            <article>
+                <h2>Reducers</h2>
+                <div class="article__view">
+                    <p>NgRx Reducers являются чистыми функциями и отвечают за смену состояния хранилища в Angular
+                        приложении в ответ на
+                        возникновение <a class="article__link" href="actions.html">действий</a>, при этом каждый редюсер
+                        формирует часть
+                        глобального
+                        <a href="store.html" class="article__link">хранилища</a>, состоянием которой он может управлять.
+                    </p>
+                    <section>
+                        <div class="article__alert">
+                            <svg class="article__alert_icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24">
+                                <path d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                            </svg>
+                            <div class="article__alert_text">Изменить состояние в NgRx можно <strong>ТОЛЬКО</strong> с использованием редюсеров.
+                            </div>
+                        </div>
+                    </section>
+                    <p class="article__block">За работу с редюсерами отвечает управляющий хранилищем отдельно
+                        устанавливаемый модуль
+                        <span class="code__inline">@ngrx/store</span>.
+                    </p>
+                    <pre class="code__cli">npm i @ngrx/store</pre>
+                    <p>Рассмотрим использование редюсеров на примере.</p>
+                    <div class="code__block">
+                        <div class="code__block_name">users.actions.ts</div>
+                        <pre>
+                            <span>import {createAction, props} from '@ngrx/store';</span>
+                            <span class="code__block__elements_el"></span>
+                            <span> export enum UsersActions {</span>
+                            <span>   LoadUsers = '[Users Page] LoadUsers',</span>
+                            <span>   DeleteUsers = '[Users Page] DeleteUsers'</span>
+                            <span> }</span>
+                            <span class="code__block__elements_el"></span>
+                            <span> export interface User{</span>
+                            <span>   id: number;</span>
+                            <span>   name: string;</span>
+                            <span>   email: string;</span>
+                            <span> }</span>
+                            <span class="code__block__elements_el"></span>
+                            <span> export const loadUsers = createAction(</span>
+                            <span>   UsersActions.LoadUsers,</span>
+                            <span>   props<{users: User[]}>()</span>
+                            <span> );</span>
+                            <span class="code__block__elements_el"></span>
+                            <span>export const deleteUsers = createAction(UsersActions.DeleteUsers);</span>
+                        </pre>
+                    </div>
+                    <div class="code__block">
+                        <div class="code__block_name">users.reducer.ts</div>
+                        <pre>
+                            <span>import {Action, createReducer, on} from '@ngrx/store';</span>
+                            <span class="code__block__elements_el"></span>
+                            <span>import * as userActions from '../actions/users.actions';</span>
+                            <span class="code__block__elements_el"></span>
+                            <span>export interface State{</span>
+                            <span>   users: User[],</span>
+                            <span>   count: number;</span>
+                            <span>}</span>
+                            <span class="code__block__elements_el"></span>
+                            <span>const initialState: State = {</span>
+                            <span>   users: [],</span>
+                            <span>   count: 0</span>
+                            <span>};</span>
+                            <span class="code__block__elements_el"></span>
+                            <span>const usersReducer = createReducer(</span>
+                            <span> initialState,</span>
+                            <span> on(usersActions.loadUsers, (state, action: Action) => ({</span>
+                            <span>   ...state,</span>
+                            <span>  users: action.users,</span>
+                            <span>  count: action.users.length</span>
+                            <span>})),</span>
+                            <span> on(usersActions.deleteUsers, state => ({</span>
+                            <span>      ...state,</span>
+                            <span>      users: [],</span>
+                            <span>      count: 0</span>
+                            <span>   }))</span>
+                            <span>);</span>
+                            <span class="code__block__elements_el"></span>
+                            <span>export function reducer(state: State | undefined, action: Action){</span>
+                            <span>  return usersReducer(state, action);</span>
+                            <span>}</span>
+                        </pre>
+                    </div>
+                    <p>Любое действие, отправляемое хранилищу методом
+                        <span class="code__inline">dispatch()</span>
+                        , передается всем редюсерам, каждый из которых либо изменяет
+                        состояние согласно текущему действию, либо возвращает состояние нетронутым, если обработка
+                        такого действия в нем не
+                        предусмотрена.
+                    </p>
+                    <section>
+                        <div class="article__alert">
+                            <svg class="article__alert_icon" xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24">
+                                <path d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                            </svg>
+                            <div class="article__alert_text"> Все изменения состояния хранилища происходят в Angular приложении синхронно, а их
+                                порядок зависит от порядка регистрации самих NgRx Reducers.
+                            </div>
+                        </div>
+                    </section>
+                    <p>Редюсер принимает два аргумента:</p>
+                    <ul>
+                        <li>часть текущего состояния хранилища, за обработку которого он ответственен;</li>
+                        <li>объект обрабатываемого действия.</li>
+                    </ul>
+                    <p>Определение обработчика определенного действия задается оператором <span class="code__inline">on()</span>,
+                        который первыми
+                        N параметрами принимает действия, а последним аргументом - единый обработчик для всех
+                        перечисленных N действий.
+                    </p>
+                </div>
+                <div class="article__navigations">
+                    <nav>
+                        <div class="article__navigations_button app__button_default"><a>Вперед</a></div>
+                        <div class="article__navigations_button app__button_default"><a>Назад</a></div>
+                    </nav>
+                </div>
+            </article>
         </main>
     </div>
     <div id="site-ads">
-        реклама тип
+        <aside>
+            блок рекламы
+        </aside>
     </div>
     <footer id="app-footer">
         <nav>

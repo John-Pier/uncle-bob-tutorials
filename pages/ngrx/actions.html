@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
     <link type="text/css" href="../../assets/styles/main.css" rel="stylesheet">
-    <title>DBobe Tutorials</title>
+    <title>Uncle Bob Tutorials</title>
 </head>
 
 <body>
@@ -54,7 +54,7 @@
                         состояние.
                         Изменить
                         состояние можно только через отправку
-                        <a class="article__link" href="/">хранилищу</a> какого-либо действия.
+                        <a class="article__link" href="store.html">хранилищу</a> какого-либо действия.
                     </p>
                     <p>За работу с действиями
                         отвечает управляющий хранилищем отдельно устанавливаемый модуль <span class="code__inline">@ngrx/store</span>.
@@ -98,7 +98,7 @@
                         новостей, то категорию можно назвать
                         [News].
                     </p>
-                    <p class="text">Для инициирования
+                    <p>Для инициирования
                         обработки NgRx Actions хранилищем, используется метод объекта хранилища <span
                                 class="code__inline">dispatch()</span>.
                     </p>
@@ -109,7 +109,7 @@
                             <span>store.dispatch(getUsers());</span>
                         </pre>
                     </div>
-                    <p class="text">Практически всегда для
+                    <p>Практически всегда для
                         изменения состояния вам необходимо будет вместе с действием передавать какие-либо данные.
                         Данные передаются действию аргументом в виде объекта в момент его вызова, а их структура
                         описывается методом
@@ -128,10 +128,10 @@
                             <span>store.dispatch(deleteUser({id: 7}));</span>
                         </pre>
                     </div>
-                    <p class="text">В последнем примере
+                    <p>В последнем примере
                         <span class="code__inline">{id: number}</span> является описанием структуры объекта данных.
                     </p>
-                    <p class="text">Для структурирования
+                    <p>Для структурирования
                         кода и легкости дальнейшего масштабирования вашего приложения, рекомендуется описывать все
                         действия в
                         виде перечислений.

@@ -6,7 +6,7 @@
     <link rel="icon" type="image/png" href="favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
     <link type="text/css" href="../../assets/styles/main.css" rel="stylesheet">
-    <title>DBobe Tutorials</title>
+    <title>Uncle Bob Tutorials</title>
 </head>
 
 <body>
@@ -26,7 +26,7 @@
             <ul>
                 <li><a href="ngrx.html"> О библиотеке</a></li>
                 <li><a href="actions.html">Actions</a></li>
-                <li><a href="reducers.html" >Reducers</a></li>
+                <li><a href="reducers.html">Reducers</a></li>
                 <li><a href="store.html" class="_active-link">Store</a></li>
                 <li><a href="../not-found.html">Selectors</a></li>
                 <li><a href="effects.html">Effects</a></li>
@@ -47,11 +47,161 @@
     </div>
     <div id="app-content" class="app__content">
         <main>
-            Содержание
+            <article>
+                <h2>Store</h2>
+                <div class="article__view">
+                    <p>NgRx Store (или
+                        просто хранилище) представляет собой глобальное состояние Angular приложения и является
+                        одним большим
+                        <a href="" class="article__link">объектом</a>.
+                    </p>
+
+                    <section>
+                        <div class="article__alert">
+                            <svg class="article__alert_icon" xmlns="http://www.w3.org/2000/svg" height="24"
+                                 viewBox="0 0 24 24">
+                                <path d="M0 0h24v24H0z" fill="none"/>
+                                <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                            </svg>
+                            <div class="article__alert_text">В приложении может быть только одно хранилище.</div>
+                        </div>
+                    </section>
+                    <p>За работу с
+                        хранилищем отвечает отдельно устанавливаемый модуль
+                        <span class="code__inline">@ngrx/store</span>.
+                    </p>
+                    <pre class="code__cli">npm i @ngrx/store</pre>
+                    <p>Хранилище в NgRx представлено
+                        сервисом <span class="code__inline">Store</span> и выполняет следующие функции:</p>
+                    <ul>
+                        <li>хранение глобального состояния приложения;</li>
+                        <li>обновление состояния в ответ на инициированное действие;</li>
+                        <li>предоставление доступа к состоянию с использованием
+                            <a class="article__link" href="">селекторов</a>.
+                        </li>
+                    </ul>
+                    <h3>Структура хранилища</h3>
+                    <p>Формирование
+                        глобального состояния в NgRx Store происходит путем объединения более мелких состояний,
+                        которые возвращают
+                        зарегистрированные в приложении <a class="article__link" href="reducers.html">редюсеры</a>.
+                        Делается это с использованием
+                        <span class="code__inline">ActionReducerMap&lt;State&gt;</span>.
+                    </p>
+                    <div class="code__block">
+                        <div class="code__block_name">users.reducer.ts</div>
+                        <pre>
+                                <span>export interface State</span>
+                            </pre>
+                    </div>
+                    <div class="code__block">
+                        <div class="code__block_name">articles.reducer.ts</div>
+                        <pre>
+                                <span>export interface State</span>
+                            </pre>
+                    </div>
+                    <div class="code__block">
+                        <div class="code__block_name">index.ts</div>
+                        <pre>
+                                <span>export interface State</span>
+                            </pre>
+                    </div>
+                    <div class="code__block">
+                        <div class="code__block_name">app.module.ts</div>
+                        <pre>
+                                <span>import {reducers} from './store/reducers/index';</span>
+                            </pre>
+                    </div>
+                    <p>Ключи верхнего уровня
+                        глобального объекта состояния задаются разработчиком в
+                        <span class="code__inline">ActionReducerMap&lt;State&gt;</span> самостоятельно.
+                    </p>
+                    <p>Структура объекта
+                        глобального хранилища из приведенного примера.
+                    </p>
+                    <pre class="code__cli">
+                                <span>{</span>
+                                <span>  articles: {...},</span>
+                                <span>  users: {...}</span>
+                                <span>}</span>
+                            </pre>
+                    <h2>StoreModule.forFeature()</h2>
+
+                    <p>В последнем примере
+                        состояние определяется в корневом модуле. Но также NgRx Store может формироваться из
+                        состояний,
+                        определенных для второстепенных модулей.
+                    </p>
+                    <p>Для регистрации
+                        редюсеров на уровне второстепенных модулей используется метод
+                        <span class="code__inline">forFeature()</span>
+                        модуля StoreModule. При этом корневой модуль может вообще не иметь собственных редюсеров.
+                    </p>
+                    <p>В случае если
+                        второстепенный модуль загружается
+                        <a class="article__link" href="">асинхронно</a>, то определенное для
+                        него состояние динамически добавится
+                        в глобальный объект после его полной загрузки. Если модуль не будет загружен, то и в
+                        глобальном хранилище ничего
+                        связанного с ним не будет.
+                    </p>
+                    <p>В данном случае
+                        структура глобального состояния зависит от того, будет ли загружен модуль, содержащий часть
+                        состояния.
+                    </p>
+                    <pre class="code__cli">
+                        <span>// струткутра состояния при </span>
+                        <span>загрузке модулей ArticlesModule и UsersModule</span>
+                        <span>{</span>
+                        <span>  articles: {...},</span>
+                        <span>  users: {...}</span>
+                        <span>}</span>
+                        <span class="code__block__elements_el"></span>
+                        <span>// струткутра состояния при загрузке модуля ArticlesModule</span>
+                        <span>{</span>
+                        <span>  articles: {...}</span>
+                        <span>}</span>
+                        <span class="code__block__elements_el"></span>
+                        <span>// струткутра состояния, если ни одни из модулей не будет загружен</span>
+                        <span>{}</span>
+                    </pre>
+                    <p>Доступ к глобальному
+                        состоянию осуществляется через экземпляр сервиса Store, прямое обращение к которому
+                        возвращает
+                        объект <a href="" class="article__link">Observable</a>.
+                    </p>
+                    <p>Значение NgRx Store
+                        передается обработчику непосредственно в момент вызова метода subscribe() и далее при любом
+                        изменении состояния. Рассмотрим на примере результата работа приведенного примера.
+                    </p>
+                    <p>Результат в консоли в
+                        момент вызова subscribe().
+                    </p>
+                    <p>Результат в консоли в
+                        момент инициирования действия loadArticle().
+                    </p>
+                    <p>Результат в консоли в
+                        момент инициирования действия publishArticle().
+                    </p>
+                    <p>Для доступа к
+                        определенным частям состояния или вычисления новых данных на основе уже имеющихся в
+                        хранилище,
+                        используются <a href="" class="article__link">селекторы</a>.
+                    </p>
+                </div>
+                <div class="article__navigations">
+                    <nav>
+                        <div class="article__navigations_button app__button_default"><a>Вперед</a></div>
+                        <div class="article__navigations_button app__button_default"><a>Назад</a></div>
+                    </nav>
+                </div>
+            </article>
         </main>
     </div>
     <div id="site-ads">
-        реклама тип
+        <aside>
+            реклама тип
+        </aside>
     </div>
     <footer id="app-footer">
         <nav>
