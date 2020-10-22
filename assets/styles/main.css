@@ -11,7 +11,6 @@ html {
 
 body {
 	display: grid;
-	background-color: var(--color-baground-main);
 	margin: 0;
 }
 
@@ -35,15 +34,16 @@ h1, h2, h3, h4, h5 {
 }
 
 h1 {
-
+	font-size: 28px;
 }
 
 h2 {
 	margin: 4px 0;
+	font-size: 24px;
 }
 
 h3 {
-
+	font-size: 20px;
 }
 
 a {
@@ -88,6 +88,23 @@ figure {
 	padding: 10px;
 }
 
+.app__button_disabled a,.app__button_warn a, .app__button_accent a, .app__button_primary a, .app__button_default a{
+	color: var(--color-button-link);
+}
+
+.app__button {
+	user-select: none;
+	transition: filter ease-in-out .3s, box-shadow ease-in-out .3s;
+}
+
+.app__button:hover {
+	filter: contrast(0.6);
+}
+
+.app__button:active {
+	filter: drop-shadow(0px 5px 8px var(--shadow-app-button));
+}
+
 .app__button_default {
 	background-color: var(--color-button-default);
 }
@@ -109,10 +126,7 @@ figure {
 }
 
 .app__button_disabled {
-}
-
-.app__button_disabled a,.app__button_warn a, .app__button_accent a, .app__button_primary a, .app__button_default a{
-	color: var(--color-button-link);
+	filter: contrast(0.5);
 }
 
 /* App */
@@ -124,41 +138,53 @@ figure {
       "footer footer footer";
 	grid-template-rows: 70px 1fr 160px;
 	grid-template-columns: minmax(220px,20%) 1fr minmax(70px,12%);
-	grid-gap: 10px;
-}
-
-#app-header {
-	grid-area: header;
-	padding: 10px;
-}
-
-#app-footer {
-	grid-area: footer;
-	padding: 10px;
-}
-
-#app-content {
-	grid-area: content;
-	padding: 10px;
-}
-
-#app-nav {
-	grid-area: nav;
-	padding: 10px;
-}
-
-#site-ads {
-	grid-area: ads;
-	padding: 10px;
 }
 
 #app-header, #app-footer, #app-content, #app-nav, #site-ads {
-	border: 1px var(--color-sub-main) solid;
 	border-radius: 3px;
 	background: var(--color-white);
 }
 
+#app-header {
+	z-index: 100;
+	grid-area: header;
+	padding: 10px;
+	box-shadow: 0 1px 9px 1px var(--shadow-code-default);
+}
+
+#app-footer {
+	--color-text-main: var(--color-white);
+
+	background-color: var(--color-block-footer);
+	grid-area: footer;
+	z-index: 100;
+	padding: 10px;
+}
+
+#app-content {
+	z-index: 97;
+	grid-area: content;
+	padding: 10px;
+	background-color: var(--color-block-content);
+}
+
+#app-nav {
+	z-index: 99;
+	grid-area: nav;
+	padding: 10px;
+	box-shadow: 3px 4px 7px 1px var(--shadow-code-default);
+}
+
+#site-ads {
+	z-index: 99;
+	grid-area: ads;
+	padding: 10px;
+	box-shadow: -3px 4px 7px 1px var(--shadow-code-default);
+}
+
+
 .app__content {
+	z-index: 98;
 	display: flex;
 	flex-direction: column;
 }
