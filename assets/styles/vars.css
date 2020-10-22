@@ -12,6 +12,9 @@
     --color-button-link: var(--color-text-main);
     --color-button-default: #B1A296;
 
+    --color-block-footer: #395465;
+    --color-block-content: #fbfbfb;
+
     --color-main: #7395AE;
     --color-sub-main: #557A95;
 
@@ -26,8 +29,9 @@
     --color-code-block-name: #819398;
 
     /* Shadow colors */
-    --shadow-code-default: #cccbcf87;
+    --shadow-code-default: rgba(204, 203, 207, 0.53);
     --shadow-code-cli: #cccbcf87;
+    --shadow-app-button: #454545d6;
 }
 
 .theme-green {
