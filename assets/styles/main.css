@@ -69,6 +69,7 @@ main {
 	display: flex;
 	flex-direction: column;
 	flex: 1 1 auto;
+	padding: 4px;
 }
 
 figure {
@@ -102,7 +103,7 @@ figure {
 }
 
 .app__button:active {
-	filter: drop-shadow(0px 5px 8px var(--shadow-app-button));
+	filter: drop-shadow(0px 3px 4px var(--shadow-app-button));
 }
 
 .app__button_default {
@@ -206,10 +207,19 @@ figure {
 
 .app__header_search {
 	margin-right: 20px;
+	font-size: 18px;
 }
 
 .app__header_search input {
 	width: 120px;
+	border-radius: 3px;
+	border: 1px solid rgba(0,0,0,0.15);
+	box-shadow: 0 2px 3px rgba(0,0,0,0.06);
+}
+
+.app__header_search input:focus {
+	outline-style: inset;
+	outline-color: var(--color-link-article);
 }
 
 .app__header_search label {
