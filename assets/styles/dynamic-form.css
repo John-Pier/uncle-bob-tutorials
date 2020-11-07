@@ -1,0 +1,43 @@
+.dynamic-form {
+	display: flex;
+	flex-direction: column;
+	font-size: 16px;
+}
+
+.dynamic-form label {
+	display: flex;
+	flex-direction: column;
+	margin-bottom: 10px;
+}
+
+.dynamic-form label > *{
+	margin-top: 4px;
+}
+
+.dynamic-form textarea {
+	width: 100%;
+	height: 100px;
+	min-width: 100%;
+	min-height: 50px;
+	max-height: 300px;
+}
+
+.dynamic-form input[type="reset"], .dynamic-form input[type="submit"] {
+	color: var(--color-button-link);
+	border: none;
+	outline: none;
+}
+
+.dynamic-form input, .dynamic-form textarea {
+	outline: none;
+}
+
+.dynamic-form input:invalid {
+	border: 1px var(--color-alert) solid;
+}
+
+.dynamic-form__toolbar {
+	display: flex;
+	justify-content: space-between;
+	margin-top: 20px;
+}

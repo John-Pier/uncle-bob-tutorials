@@ -1,8 +1,9 @@
 @import 'vars.css';
 @import 'text-formatting.css';
 @import 'acticle.css';
+@import 'dynamic-form.css';
 
-html {
+:root {
 	font-family: Lato, Roboto, sans-serif;
 	font-weight: 400;
 	-ms-text-size-adjust: 100%;
@@ -95,7 +96,7 @@ figure {
 
 .app__button {
 	user-select: none;
-	transition: filter ease-in-out .3s, box-shadow ease-in-out .3s;
+	transition: filter ease-in-out .2s, box-shadow ease-in-out .2s;
 }
 
 .app__button:hover {
@@ -127,7 +128,7 @@ figure {
 }
 
 .app__button_disabled {
-	filter: contrast(0.5);
+	opacity: 0.6;
 }
 
 /* App */
@@ -156,10 +157,12 @@ figure {
 #app-footer {
 	--color-text-main: var(--color-white);
 
+	display: flex;
+	justify-content: space-around;
 	background-color: var(--color-block-footer);
 	grid-area: footer;
 	z-index: 100;
-	padding: 10px;
+	padding: 20px;
 }
 
 #app-content {
