@@ -36,6 +36,10 @@
 	border: 1px var(--color-alert) solid;
 }
 
+.dynamic-form textarea:invalid {
+	border: 1px var(--color-alert) solid;
+}
+
 .dynamic-form__toolbar {
 	display: flex;
 	justify-content: space-between;

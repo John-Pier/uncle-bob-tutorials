@@ -1,0 +1,41 @@
+.popover {
+	width: 100%;
+	height: 100%;
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 999;
+	background-color: var(--color-popover-overlay);
+}
+
+.popover__body {
+	display: flex;
+	flex-direction: column;
+	background: var(--color-white);
+	box-shadow: 0 3px 15px 1px  var(--shadow-popover);
+	min-height: 100px;
+	min-width: 100px;
+	padding: 20px;
+	border-radius: 4px;
+}
+
+.popover__toolbar {
+	display: flex;
+	flex: 1 1 auto;
+	justify-content: flex-end;
+	padding-top: 10px;
+}
+
+.popover .app__button {
+	margin-left: 10px;
+}
+
+.popover__list {
+	display: flex;
+	flex-direction: column;
+}
+
+.popover__list > * {
+	padding-bottom: 5px;
+}
