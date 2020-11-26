@@ -2,6 +2,7 @@
 @import 'text-formatting.css';
 @import 'acticle.css';
 @import 'dynamic-form.css';
+@import 'popover.css';
 
 :root {
 	font-family: Lato, Roboto, sans-serif;
@@ -90,7 +91,7 @@ figure {
 	padding: 10px;
 }
 
-.app__button_disabled a,.app__button_warn a, .app__button_accent a, .app__button_primary a, .app__button_default a{
+.app__button_disabled a,.app__button_warn a, .app__button_accent a, .app__button_primary a, .app__button_default a {
 	color: var(--color-button-link);
 }
 

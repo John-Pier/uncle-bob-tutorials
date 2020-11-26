@@ -28,8 +28,11 @@
     --color-code-block: #f3ede8;
     --color-code-block-name: #819398;
 
+    --color-popover-overlay: rgba(117, 116, 119, 0.44);
+
     /* Shadow colors */
     --shadow-code-default: rgba(204, 203, 207, 0.53);
+    --shadow-popover: rgba(204, 203, 207, 0.53);
     --shadow-code-cli: #cccbcf87;
     --shadow-app-button: #454545d6;
 }

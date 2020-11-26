@@ -5,7 +5,7 @@
     <link rel="icon" type="image/png" href="../favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
     <link type="text/css" href="../assets/styles/main.css" rel="stylesheet">
-    <script src="../scripts/feedback-form.js"></script>
+    <script type="module" src="../scripts/feedback-form.js"></script>
     <title>Обратная связь</title>
 </head>
 <body>
@@ -57,36 +57,45 @@
                 <section class="article__section">
                     <h2>Воспользуйтесь формой обратной связи</h2>
                     <div class="article__block">
-                        <form name="feedback-form"  class="dynamic-form">
-                            <label> Email
-                                <input name="email" type="email" required tabindex="1">
-                            </label>
-                            <label> Ваше имя
-                                <input name="name" type="text" required tabindex="2">
-                            </label>
-                            <label> Опишите проблему или Ваше предложение
-                                <textarea name="text" required placeholder="Опишите проблему или предложение" tabindex="3"></textarea>
-                            </label>
-                            <label> Вывберите курс, о котором идет речь (Если такое имеет место)
-                                <select name="course" tabindex="4">
-                                    <option selected value="">Не выбрано</option>
-                                    <option value="rxjs">RxJs</option>
-                                    <option value="ngrx">NgRx</option>
-                                    <option value="nodejs">Node.js</option>
-                                </select>
-                            </label>
-                            <label> Вы хотите получить ответ ?
-                                <input name="requireAnswer" type="checkbox">
-                            </label>
+                        <form name="feedback-form" class="dynamic-form">
+                            <fieldset name="main-fields">
+                                <label> Email
+                                    <input name="email"
+                                           type="email"
+                                           tabindex="1">
+                                </label>
+                                <label> Ваше имя
+                                    <input name="name"
+                                           type="text"
+                                           required
+                                           tabindex="2">
+                                </label>
+                                <label> Опишите проблему или Ваше предложение
+                                    <textarea name="text"
+                                              required
+                                              placeholder="Опишите проблему или предложение"
+                                              tabindex="3"></textarea>
+                                </label>
+                                <label> Вывберите курс, о котором идет речь (Если такое имеет место)
+                                    <select name="course" tabindex="4">
+                                        <option selected value="">Не выбрано</option>
+                                        <option value="rxjs">RxJs</option>
+                                        <option value="ngrx">NgRx</option>
+                                        <option value="nodejs">Node.js</option>
+                                    </select>
+                                </label>
+                                <label> Вы хотите получить ответ ?
+                                    <input name="require-answer"
+                                           type="checkbox">
+                                </label>
+                            </fieldset>
                             <div class="dynamic-form__toolbar">
-                                <fieldset name="toolbar">
-                                    <label>
-                                        <input class="app__button app__button_warn" type="reset">
-                                    </label>
-                                    <label>
-                                        <input name="submit" class="app__button app__button_primary" type="submit">
-                                    </label>
-                                </fieldset>
+                                <label>
+                                    <input class="app__button app__button_warn" type="reset">
+                                </label>
+                                <label>
+                                    <input name="submit" class="app__button app__button_primary" type="submit">
+                                </label>
                             </div>
                         </form>
                     </div>
