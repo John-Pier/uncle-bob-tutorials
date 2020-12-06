@@ -6,6 +6,9 @@
     <link rel="icon" type="image/png" href="/favicon.ico">
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
     <link type="text/css" href="assets/styles/main.css" rel="stylesheet">
+    <script type="module" src="scripts/page-search.js"></script>
+    <script type="module" src="scripts/hide-list.js"></script>
+    <script type="module" src="scripts/about.js"></script>
     <title>Uncle Bob Tutorials</title>
 </head>
 
@@ -15,14 +18,14 @@
         <div class="app__header">
             <div class="app__header_title">Uncle Bob Tutorials</div>
             <div class="app__header_search">
-                <label> Поиск по странице: <input autocomplete="off" tabindex="1" type="search" placeholder="Введите фразу...">
+                <label> Поиск по странице: <input id="search-element" autocomplete="off" tabindex="1" type="search" placeholder="Введите фразу...">
                 </label>
             </div>
         </div>
     </header>
     <div id="app-nav">
         <nav>
-            <div><a href="pages/ngrx/ngrx.html">NgRx</a></div>
+            <div class="accordion" data-accordion>NgRx</div>
             <ul>
                 <li><a href="pages/ngrx/ngrx.html">О библиотеке</a></li>
                 <li><a href="pages/ngrx/actions.html">Actions</a></li>
@@ -35,11 +38,11 @@
                 <li><a href="pages/not-found.html">Entity state</a></li>
                 <li><a href="pages/not-found.html">Оформление</a></li>
             </ul>
-            <div><a href="pages/not-found.html">RxJS (В разработке)</a></div>
+            <div class="accordion" data-accordion><a>RxJS (В разработке)</a></div>
             <ul>
                 <li><a href="pages/not-found.html">О библиотеке</a></li>
             </ul>
-            <div><a href="pages/not-found.html">Node.js (В разработке)</a></div>
+            <div class="accordion" data-accordion><a>Node.js (В разработке)</a></div>
             <ul>
                 <li><a href="pages/not-found.html">О библиотеке</a></li>
             </ul>
@@ -120,7 +123,7 @@
         <nav>
             <ul>
                 <li><a href="pages/feedback.html">Обратная связь</a></li>
-                <li><a>О нас</a></li>
+                <li><a id="about-script">Справка</a></li>
             </ul>
         </nav>
     </footer>

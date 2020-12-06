@@ -1,3 +1,7 @@
+.accordion {
+    cursor: pointer;
+}
+
 .accordion:after {
     content: "\2796";
     font-size: 13px;

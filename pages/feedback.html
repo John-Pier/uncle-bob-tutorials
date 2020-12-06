@@ -8,13 +8,14 @@
     <script type="module" src="../scripts/feedback-form.js"></script>
     <script type="module" src="../scripts/page-search.js"></script>
     <script type="module" src="../scripts/hide-list.js"></script>
+    <script type="module" src="../scripts/about.js"></script>
     <title>Обратная связь</title>
 </head>
 <body>
 <div class="app__wrapper">
     <header id="app-header">
         <div class="app__header">
-            <div class="app__header_title">Uncle Bob Tutorials</div>
+            <div class="app__header_title"><a href="../index.html">Uncle Bob Tutorials</a></div>
             <div class="app__header_search">
                 <label> Поиск по странице: <input id="search-element"
                                                   autocomplete="off"
@@ -27,7 +28,7 @@
     </header>
     <div id="app-nav">
         <nav>
-            <div class="accordion" data-accordion><a href="ngrx/ngrx.html">NgRx</a></div>
+            <div class="accordion" data-accordion>NgRx</div>
             <ul class="accordion__list">
                 <li><a href="ngrx/ngrx.html">О библиотеке</a></li>
                 <li><a href="ngrx/actions.html">Actions</a></li>
@@ -40,11 +41,11 @@
                 <li><a href="not-found.html">Entity state</a></li>
                 <li><a href="not-found.html">Оформление</a></li>
             </ul>
-            <div class="accordion non-active" data-accordion><a href="not-found.html">RxJS (В разработке)</a></div>
+            <div class="accordion non-active" data-accordion>RxJS (В разработке)</div>
             <ul>
                 <li><a href="not-found.html">О библиотеке</a></li>
             </ul>
-            <div class="accordion non-active" data-accordion><a href="not-found.html">Node.js (В разработке)</a></div>
+            <div class="accordion non-active" data-accordion>Node.js (В разработке)</div>
             <ul>
                 <li><a href="not-found.html">О библиотеке</a></li>
             </ul>
@@ -131,7 +132,7 @@
         <nav>
             <ul>
                 <li><a href="" class="_active-link">Обратная связь</a></li>
-                <li><a>О нас</a></li>
+                <li id="about-script"><a>Справка</a></li>
             </ul>
         </nav>
     </footer>
