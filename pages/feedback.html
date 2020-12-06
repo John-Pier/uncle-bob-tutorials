@@ -6,6 +6,8 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
     <link type="text/css" href="../assets/styles/main.css" rel="stylesheet">
     <script type="module" src="../scripts/feedback-form.js"></script>
+    <script type="module" src="../scripts/page-search.js"></script>
+    <script type="module" src="../scripts/hide-list.js"></script>
     <title>Обратная связь</title>
 </head>
 <body>
@@ -14,15 +16,19 @@
         <div class="app__header">
             <div class="app__header_title">Uncle Bob Tutorials</div>
             <div class="app__header_search">
-                <label> Поиск: <input autocomplete="off" tabindex="1" type="search" placeholder="Введите фразу...">
+                <label> Поиск по странице: <input id="search-element"
+                                                  autocomplete="off"
+                                                  tabindex="1"
+                                                  type="search"
+                                                  placeholder="Введите фразу...">
                 </label>
             </div>
         </div>
     </header>
     <div id="app-nav">
         <nav>
-            <div><a href="ngrx/ngrx.html">NgRx</a></div>
-            <ul>
+            <div class="accordion" data-accordion><a href="ngrx/ngrx.html">NgRx</a></div>
+            <ul class="accordion__list">
                 <li><a href="ngrx/ngrx.html">О библиотеке</a></li>
                 <li><a href="ngrx/actions.html">Actions</a></li>
                 <li><a href="ngrx/reducers.html">Reducers</a></li>
@@ -34,11 +40,11 @@
                 <li><a href="not-found.html">Entity state</a></li>
                 <li><a href="not-found.html">Оформление</a></li>
             </ul>
-            <div><a href="not-found.html">RxJS (В разработке)</a></div>
+            <div class="accordion non-active" data-accordion><a href="not-found.html">RxJS (В разработке)</a></div>
             <ul>
                 <li><a href="not-found.html">О библиотеке</a></li>
             </ul>
-            <div><a href="not-found.html">Node.js (В разработке)</a></div>
+            <div class="accordion non-active" data-accordion><a href="not-found.html">Node.js (В разработке)</a></div>
             <ul>
                 <li><a href="not-found.html">О библиотеке</a></li>
             </ul>

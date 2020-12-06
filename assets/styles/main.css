@@ -3,6 +3,7 @@
 @import 'acticle.css';
 @import 'dynamic-form.css';
 @import 'popover.css';
+@import 'accordion.css';
 
 :root {
 	font-family: Lato, Roboto, sans-serif;
@@ -228,4 +229,8 @@ figure {
 
 .app__header_search label {
 
+}
+
+._highlighted {
+	background-color: var(--color-highlighted);
 }
