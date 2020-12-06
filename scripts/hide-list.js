@@ -1,7 +1,9 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const elements = document.querySelectorAll(".accordion[data-accordion]");
+    const elements = document.querySelectorAll(".accordion[data-accordion]") || [];
     elements.forEach(element => {
         element.addEventListener("click", event =>  {
+            event.stopPropagation();
+            event.preventDefault();
             event.target.classList.toggle("non-active");
             const panel = event.target.nextElementSibling;
             panel && panel.classList.toggle("accordion__list_hide");

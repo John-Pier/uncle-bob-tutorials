@@ -18,7 +18,9 @@ export function openPopover(messageOrElement, successFunction, cancelFunction) {
     function createOverlay() {
         const overlay = document.createElement("div");
         overlay.className = "popover";
-        overlay.addEventListener("click", () => {
+        overlay.addEventListener("click", event => {
+            event.stopPropagation();
+            event.preventDefault();
             cancelFunction && cancelFunction();
             overlay.remove();
         });
@@ -36,7 +38,7 @@ export function openPopover(messageOrElement, successFunction, cancelFunction) {
     function createSuccessButton() {
         const successButton = document.createElement("div");
         successButton.className = "app__button app__button_primary";
-        successButton.innerHTML = "<a>Подтвердить</a>";
+        successButton.innerHTML = "<a>OK</a>";
         successButton.addEventListener("click", () => {
             successFunction && successFunction();
             overlay.remove();
