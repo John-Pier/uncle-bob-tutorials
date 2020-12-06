@@ -1,0 +1,21 @@
+.accordion:after {
+    content: "\2796";
+    font-size: 13px;
+    color: var(--color-sub-main);
+    border: none;
+    float: right;
+    margin-left: 5px;
+}
+
+.accordion__list {
+    transition: display 0.3s ease-out;
+}
+
+.accordion__list_hide {
+    display: none;
+}
+
+.non-active:after {
+    content: "\02795";
+    color: var(--color-sub-main);
+}
