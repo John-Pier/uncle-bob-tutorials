@@ -1,2 +1,3 @@
-# uncle-bob-tutorials
+# UncleBobTutorials
+## About
 [Course Work] Site about JS Libraries 
