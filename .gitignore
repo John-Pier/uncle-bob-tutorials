@@ -4,6 +4,8 @@
 out
 gen
 
+*/node_modules/
+
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
@@ -13,4 +15,3 @@ gen
 
 # Local History for Visual Studio Code
 .history/
-
