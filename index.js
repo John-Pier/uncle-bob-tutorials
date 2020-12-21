@@ -1,13 +1,10 @@
 const express = require("express");
+const pbService = require("./services/pg-connection.service");
 const app = express();
-const bodyParser = require("body-parser");
-const http = require("http");
 
 const PORT = 3001;
 
-app.use(express.static(__dirname + "public"));
-
-//app.use(express.json())
+app.use(express.static(__dirname + "public/*"));
 
 app.use(function (req, res, next) {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -16,16 +13,14 @@ app.use(function (req, res, next) {
     next();
 });
 
-app.get("/.*\/*(\.)js$/", function (request, response) {
-    response.status(200).type("script");
-    response.sendFile(__dirname + "/public" + request.url);
-});
+app.use("/", express.static(__dirname + "/public"));
 
 app.post('/comment', (req, res) => {
-    console.log(req.body);
+    console.log(req.url, req.body);
+    req.body && pbService.addToDB(JSON.parse(req.body));
     res.status(200).send('Server Works');
 })
 
 app.listen(PORT, () => {
-    console.log(`App running on port ${PORT}.`)
+    console.log(`Server running on port ${PORT}.`)
 })

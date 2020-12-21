@@ -7,6 +7,10 @@ const pool = new Pool({
     port: 5432,
 });
 
+module.exports.addToDB = function addToDB(comment) {
+    ///
+}
+
 // const connectionString = process.env.DATABASE_URL || "postgres://localhost:5432/*";
 // const client = new pool.Client(connectionString);
 // client.connect();

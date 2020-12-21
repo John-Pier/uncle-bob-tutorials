@@ -33,23 +33,23 @@ document.addEventListener("DOMContentLoaded", () => {
 
     form.elements[feedbackFormFieldNames.EMAIL].addEventListener("change", event => {
         if (form.elements[feedbackFormFieldNames.EMAIL].validity.patternMismatch) {
-            event.target.setCustomValidity('Задайте  корректный Email');
-            event.target.title = 'Задайте  корректный Email';
+            event.target.setCustomValidity("Задайте  корректный Email");
+            event.target.title = "Задайте  корректный Email";
             event.preventDefault();
         } else {
-            event.target.title = '';
-            event.target.setCustomValidity('');
+            event.target.title = "";
+            event.target.setCustomValidity("");
         }
     });
 
     form.elements[feedbackFormFieldNames.NAME].addEventListener("change", event => {
         if (form.elements[feedbackFormFieldNames.NAME].validity.patternMismatch) {
-            event.target.setCustomValidity('Задайте  корректное Имя');
-            event.target.title = 'Задайте  корректное Имя';
+            event.target.setCustomValidity("Задайте  корректное Имя");
+            event.target.title = "Задайте  корректное Имя";
             event.preventDefault();
         } else {
-            event.target.title = '';
-            event.target.setCustomValidity('');
+            event.target.title = "";
+            event.target.setCustomValidity("");
         }
     });
 
@@ -64,11 +64,10 @@ document.addEventListener("DOMContentLoaded", () => {
                     headers: {
                         "Content-Type": "application/json;charset=utf-8"
                     },
-                    body: JSON.stringify(form.value)
+                    body: JSON.stringify(getFormValues())
                 }
-                )
-                .then(response => response.json())
-                .then(() =>  clearForm());
+            )
+                .then(() => clearForm());
         });
     };
 
@@ -98,6 +97,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
     function getUrl() {
         const PORT = 3001;
-        return window.location.protocol + "//" + window.location.hostname + ":" + PORT + "/comment"
+        return window.location.protocol + "//" + window.location.hostname + ":" + PORT + "/comment";
+    }
+
+    function getFormValues() {
+        return Object.values(feedbackFormFieldNames)
+            .reduce((result, key) => {
+                if (key !== feedbackFormFieldNames.MAIN_FIELDS
+                    && key !== feedbackFormFieldNames.SUBMIT
+                    && key !== feedbackFormFieldNames.CHECKBOX) {
+                    result[key] = form.elements[key].value;
+                }
+                return result;
+            }, { [feedbackFormFieldNames.CHECKBOX]: form.elements[feedbackFormFieldNames.CHECKBOX].checked });
     }
 });
