@@ -56,7 +56,20 @@ document.addEventListener("DOMContentLoaded", () => {
     form.onsubmit = (event) => {
         event.preventDefault();
         event.stopPropagation();
-        openPopover(getValuesAsElement(), () => clearForm());
+        openPopover(getValuesAsElement(), () => {
+            fetch(
+                getUrl(),
+                {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json;charset=utf-8"
+                    },
+                    body: JSON.stringify(form.value)
+                }
+                )
+                .then(response => response.json())
+                .then(() =>  clearForm());
+        });
     };
 
     function getValuesAsElement() {
@@ -82,6 +95,9 @@ document.addEventListener("DOMContentLoaded", () => {
         form.elements[feedbackFormFieldNames.EMAIL].removeAttribute("required");
         form.reset();
     }
+
+    function getUrl() {
+        const PORT = 3001;
+        return window.location.protocol + "//" + window.location.hostname + ":" + PORT + "/comment"
+    }
 });
-
-
